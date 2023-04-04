@@ -50,27 +50,28 @@ public class MyDeque<T> {
 
     public T deleteFirst() {
         T delItem = head.value;
-        if(head.next==null){
-            this.head=this.tail=null;
+        if (head.next == null) {
+            this.head = this.tail = null;
 
+        } else {
+            head = head.next;
+            head.prev = null;
         }
-        else {
-        head = head.next;
-        head.prev = null;}
 
         return delItem;
     }
 
     public T deleteLast() {
         T delItem = tail.value;
-        if(tail.prev==null){
-            this.head=this.tail=null;
+        if (tail.prev == null) {
+            this.head = this.tail = null;
+        } else {
+            tail = tail.prev;
+            tail.next = null;
         }
-        else {
-        tail = tail.prev;
-        tail.next = null;}
         return delItem;
     }
+
     public ArrayList<T> toArrayList() {
         var e = new ArrayList<T>();
         for (Node<T> current = head; current != null; current = current.next) {
@@ -107,7 +108,6 @@ public class MyDeque<T> {
 
         }
     }
-
 
 
     public String displayList() {
