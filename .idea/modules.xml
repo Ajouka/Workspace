@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Algo01/Algo01.iml" filepath="$PROJECT_DIR$/Algo01/Algo01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algo03/Algo03.iml" filepath="$PROJECT_DIR$/Algo03/Algo03.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Workspace.iml" filepath="$PROJECT_DIR$/.idea/Workspace.iml" />
       <module fileurl="file://$PROJECT_DIR$/algo02/algo02.iml" filepath="$PROJECT_DIR$/algo02/algo02.iml" />
