@@ -16,8 +16,23 @@ list1 = ["tarek", "barek", "mojek"]
 list1.remove("tarek")
 list1.append("ooo")
 list1.insert(0, "o2o2")
-if "tarek" in list1:
-    print("tarek is in")
-else:
-    print("he is not in")
-print(list1)
+print("tarek is in") if "tarek" in list1 else print("he is not in ")
+
+# if "tarek" in list1:
+#     print("tarek is in")
+# else:
+#     print("he is not in")
+# print(list1)
+
+thisdict = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+thisdict["color"] = "red"
+print(thisdict)
+thisdict.pop("model")
+print(thisdict)
+print(thisdict.values())
+print(dict.fromkeys(thisdict))
+print(thisdict["brand"])

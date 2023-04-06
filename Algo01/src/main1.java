@@ -7,6 +7,7 @@ public class main1 {
         x.addFirst("c");
         x.addlast("z");
 
+        Lists.zaehler("abcdefg");
        
         x.add(0,"z");
 x.add(4,"w");
