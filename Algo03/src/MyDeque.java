@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class MyDeque<T> {
-    public class Node<T> {
+    public class Node {
         public T value;
-        public Node<T> next;
-        public Node<T> prev;
+        public Node next;
+        public Node prev;
 
         public Node(T value) {
             this.value = value;
@@ -12,13 +12,13 @@ public class MyDeque<T> {
 
     }
 
-    private Node<T> head;
+    private Node head;
 
-    private Node<T> tail;
+    private Node tail;
 
 
     public void addlast(T name) {
-        Node<T> newNode = new Node<T>(name);
+        Node newNode = new Node(name);
         if (head == null) {
             this.head = this.tail = newNode;
             head.prev = null;
@@ -33,7 +33,7 @@ public class MyDeque<T> {
     }
 
     public void addFirst(T value) {
-        Node<T> newNode = new Node<T>(value);
+        Node newNode = new Node(value);
         if (head == null) {
             this.head = this.tail = newNode;
             head.prev = null;
@@ -74,7 +74,7 @@ public class MyDeque<T> {
 
     public ArrayList<T> toArrayList() {
         var e = new ArrayList<T>();
-        for (Node<T> current = head; current != null; current = current.next) {
+        for (Node current = head; current != null; current = current.next) {
             e.add(current.value);
         }
         return e;
@@ -83,20 +83,20 @@ public class MyDeque<T> {
 
     public ArrayList<T> toReverseArrayList() {
         var e = new ArrayList<T>();
-        for (Node<T> current = tail; current != null; current = current.prev) {
+        for (Node current = tail; current != null; current = current.prev) {
             e.add(current.value);
         }
         return e;
     }
 
     public void add(int index, T elemnt) {
-        Node<T> newNode = new Node<T>(elemnt);
+        Node newNode = new Node(elemnt);
         if (index == 0) {
             addFirst(elemnt);
         } else if (index == sizeOf() - 1) {
             addlast(elemnt);
         } else if (index < (sizeOf() - 1) && index > 0) {
-            Node<T> current = head;
+            Node current = head;
             for (int i = 0; i < index; i++) {
                 current = current.next;
             }
@@ -116,7 +116,7 @@ public class MyDeque<T> {
 
         } else {
             StringBuilder sb = new StringBuilder("[");
-            for (Node<T> current = head; current != null; current = current.next) {
+            for (Node current = head; current != null; current = current.next) {
                 if (current == tail) sb.append(current.value);
                 else sb.append(current.value).append(", ");
             }
@@ -128,7 +128,7 @@ public class MyDeque<T> {
 
     public int sizeOf() {
         int counter = 0;
-        for (Node<T> x = head; x != null; x = x.next) {
+        for (Node x = head; x != null; x = x.next) {
             counter++;
         }
         return counter;
