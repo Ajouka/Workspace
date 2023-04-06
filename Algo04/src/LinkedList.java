@@ -13,47 +13,9 @@ public class LinkedList implements Ilist {
         }
     }
 
-    public ArrayList<Integer> listToArray() {
-        var e = new ArrayList<Integer>();
 
 
-        for (Node current = head; current != null; current = current.next) {
-            e.add(current.data);
-        }
-        return e;
-    }
 
-    public static void testList() {
-        LinkedList x = new LinkedList();
-        x.insertFirst(3);
-        x.insertFirst(2);
-        x.insertFirst(1);
-        
-        x.insertAt(0, 10);
-        x.insertAt(1, 11);
-        x.insertAt(3, 20);
-        x.insertAt(6, 30);
-        x.insertLast(40);
-        x.removeAt(3);
-        System.out.println(x.listToArray());
-        System.out.println(x.search(30));
-        System.out.println(x.getCount());
-    }
-
-    public void insertLast(int element) {
-
-        if (head == null) {
-            insertFirst(element);
-
-        } else {
-            Node current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = new Node(element);
-        }
-        count++;
-    }
 
     public void insertFirst(int element) {
         Node newNode = new Node(element);
@@ -142,5 +104,34 @@ public class LinkedList implements Ilist {
     @Override
     public int getCount() {
         return count;
+    }
+    public ArrayList<Integer> listToArray() {
+        var e = new ArrayList<Integer>();
+
+
+        for (Node current = head; current != null; current = current.next) {
+            e.add(current.data);
+        }
+        return e;
+    }
+
+    public static void testList() {
+        LinkedList x = new LinkedList();
+
+
+        x.insertAt(0, 10);
+        x.insertAt(1, 11);
+        x.insertAt(2,50);
+        x.insertAt(3, 20);
+        x.insertAt(4,60);
+        x.insertAt(5,3);
+        x.insertAt(6, 30);
+
+        x.removeAt(3);
+        System.out.println(x.listToArray());
+        System.out.println(x.getAt(0));
+
+        System.out.println(x.search(30));
+        System.out.println(x.getCount());
     }
 }
