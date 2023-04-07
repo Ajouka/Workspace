@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class LinkedList implements Ilist {
     private Node head;
     private int count;
@@ -11,6 +12,27 @@ public class LinkedList implements Ilist {
         Node(int data) {
             this.data = data;
         }
+    }
+
+
+    public static void testList() {
+        LinkedList x = new LinkedList();
+
+
+        x.insertAt(0, 10);
+        x.insertAt(1, 11);
+        x.insertAt(2,50);
+        x.insertAt(3, 20);
+        x.insertAt(4,60);
+        x.insertAt(5,3);
+        x.insertAt(6, 30);
+
+        x.removeAt(3);
+        System.out.println(x.listToArray());
+        System.out.println(x.getAt(0));
+
+        System.out.println(x.search(30));
+        System.out.println(x.getCount());
     }
 
 
@@ -115,23 +137,5 @@ public class LinkedList implements Ilist {
         return e;
     }
 
-    public static void testList() {
-        LinkedList x = new LinkedList();
 
-
-        x.insertAt(0, 10);
-        x.insertAt(1, 11);
-        x.insertAt(2,50);
-        x.insertAt(3, 20);
-        x.insertAt(4,60);
-        x.insertAt(5,3);
-        x.insertAt(6, 30);
-
-        x.removeAt(3);
-        System.out.println(x.listToArray());
-        System.out.println(x.getAt(0));
-
-        System.out.println(x.search(30));
-        System.out.println(x.getCount());
-    }
 }

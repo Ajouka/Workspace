@@ -1,0 +1,14 @@
+public void insertLast(int element) {
+
+        if (head == null) {
+            insertFirst(element);
+
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = new Node(element);
+        }
+        count++;
+    }
