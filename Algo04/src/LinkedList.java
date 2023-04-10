@@ -1,11 +1,14 @@
 import java.util.ArrayList;
+/*
+hier die Linkedlist klasse die, die Interface Ilist implementiert
 
+ */
 
 public class LinkedList implements Ilist {
     private Node head;
     private int count;
 
-    public class Node {
+    public static class Node {
         int data;
         Node next;
 
@@ -13,19 +16,24 @@ public class LinkedList implements Ilist {
             this.data = data;
         }
     }
-
+/*
+die TestKlasse, die alle Methoden die Klasse getestet
+ */
 
     public static void testList() {
         LinkedList x = new LinkedList();
 
 
-        x.insertAt(0, 10);
+
+        x.insertAt(0,10);
         x.insertAt(1, 11);
         x.insertAt(2,50);
         x.insertAt(3, 20);
         x.insertAt(4,60);
         x.insertAt(5,3);
         x.insertAt(6, 30);
+        x.insertAt(0,10);
+        x.insertAt(0,100);
 
         x.removeAt(3);
         System.out.println(x.listToArray());
@@ -37,7 +45,9 @@ public class LinkedList implements Ilist {
 
 
 
-
+/*
+hier wird der Integerzahl zuerst in die Liste hinzufügt könnte ich auch in die insertAt schreiben
+ */
 
     public void insertFirst(int element) {
         Node newNode = new Node(element);
@@ -46,7 +56,11 @@ public class LinkedList implements Ilist {
         count++;
     }
 
-
+/*
+hie wird eine Integerzahl an bestimmte index in die List hinzufügt
+ich wüsste auch nicht ob der gleiche Zahl mehrmals in die List vorhanden sein kann
+steht gar nix in die Aufgabestellung 
+ */
     @Override
     public void insertAt(int index, int element) {
         if (index < 0 || index > count) {
@@ -69,7 +83,9 @@ public class LinkedList implements Ilist {
         }
 
     }
-
+/*
+hier wird eine Integerzahl an bestimmte index gelöscht
+ */
     @Override
     public void removeAt(int index) {
         if (index < 0 || index > count) {
@@ -88,7 +104,9 @@ public class LinkedList implements Ilist {
             }
         }
     }
-
+/*
+hier wird eine Zahl an einer bestimmten Position auszulesen
+ */
     @Override
     public int getAt(int index) {
         if (index < 0 || index > count - 1) {
@@ -103,7 +121,10 @@ public class LinkedList implements Ilist {
             return currrent.data;
         }
     }
-
+/*
+hier wird einen Wert gesucht, ob es in die List schon vorhanden ist oder nicht und wenn
+ ja, wird die position den Wert zurückgegeben
+ */
     @Override
     public int search(int element) {
         Node current = head;
@@ -115,6 +136,9 @@ public class LinkedList implements Ilist {
 
         return -1;
     }
+    /*
+    hier wird alle Werte die Liste gelöscht hab einfach die removeAt methode benutzt
+     */
 
     @Override
     public void clear() {
@@ -122,6 +146,9 @@ public class LinkedList implements Ilist {
             removeAt(i);
         }
     }
+    /*
+    hier wird die Anzahl der enthaltenen Elemente zurückzugeben
+     */
 
     @Override
     public int getCount() {

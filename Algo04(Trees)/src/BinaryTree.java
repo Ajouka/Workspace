@@ -1,7 +1,7 @@
 import javax.swing.tree.TreeNode;
 
 public class BinaryTree {
-    private Node root;
+    public Node root;
     private int count;
 
     public static class Node {
@@ -14,9 +14,18 @@ public class BinaryTree {
         }
     }
 
-    public BinaryTree() {
-        this.root = null;
-        this.count = 0;
+
+    public void show(int data) {
+        Node current = root;
+        while (current != null) {
+            if (current.value == data) {
+                 System.out.println(current.value+":"+" left: "+current.lift+" right:"+current.right);
+            } else if (current.value > data) {
+                current = current.lift;
+            } else current = current.right;
+        }
+        System.out.println(data+" isnt found ");
+
     }
 
     public boolean search(int data) {
@@ -56,7 +65,7 @@ public class BinaryTree {
         } else if (element > root.value) {
             return insertRec(element, root.right);
         }
-        return root;
+        return this.root;
     }
 
     public boolean insert2(int element) {
