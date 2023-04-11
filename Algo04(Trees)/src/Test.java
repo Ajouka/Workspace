@@ -15,6 +15,6 @@ public class Test {
         System.out.println(e.search2(5));
         System.out.println(e.search(5));
         e.inorder();
-        System.out.println(e.root.value);
+        System.out.println(e.root.data);
     }
 }

@@ -3,12 +3,12 @@ public class BinaryTree {
     private int count;
 
     public static class Node {
-        public int value;
-        public Node lift;
+        public int data;
+        public Node left;
         public Node right;
 
         public Node(int element) {
-            this.value = element;
+            this.data = element;
         }
     }
 
@@ -16,10 +16,10 @@ public class BinaryTree {
     public void show(int data) {
         Node current = root;
         while (current != null) {
-            if (current.value == data) {
-                System.out.println(current.value + ":" + " left: " + current.lift + " right:" + current.right);
-            } else if (current.value > data) {
-                current = current.lift;
+            if (current.data == data) {
+                System.out.println(current.data + ":" + " left: " + current.left + " right:" + current.right);
+            } else if (current.data > data) {
+                current = current.left;
             } else current = current.right;
         }
         System.out.println(data + " isnt found ");
@@ -29,10 +29,10 @@ public class BinaryTree {
     public boolean search(int data) {
         Node current = root;
         while (current != null) {
-            if (current.value == data) {
+            if (current.data == data) {
                 return true;
-            } else if (current.value > data) {
-                current = current.lift;
+            } else if (current.data > data) {
+                current = current.left;
             } else current = current.right;
         }
         return false;
@@ -44,8 +44,8 @@ public class BinaryTree {
 
     private boolean search2Rec(int element, Node root) {
         if (root == null) return false;
-        else if (root.value == element) return true;
-        return element > root.value ? search2Rec(element, root.right) : search2Rec(element, root.lift);
+        else if (root.data == element) return true;
+        return element > root.data ? search2Rec(element, root.right) : search2Rec(element, root.left);
     }
 
     public void insertrec(int element) {
@@ -58,9 +58,9 @@ public class BinaryTree {
         if (root == null) {
             return new Node(element);
 
-        } else if (element < root.value) {
-            return insert2Rec(element, root.lift);
-        } else if (element > root.value) {
+        } else if (element < root.data) {
+            return insert2Rec(element, root.left);
+        } else if (element > root.data) {
             return insert2Rec(element, root.right);
         }
         return this.root;
@@ -74,13 +74,13 @@ public class BinaryTree {
                 return;
             }
             Node current = root;
-            while (current.value != element) {
-                if (current.value > element) {
-                    if (current.lift == null) {
-                        current.lift = new Node(element);
+            while (current.data != element) {
+                if (current.data > element) {
+                    if (current.left == null) {
+                        current.left = new Node(element);
                         return;
                     }
-                    current = current.lift;
+                    current = current.left;
                 } else {
 
                     if (current.right == null) {
@@ -108,8 +108,8 @@ public class BinaryTree {
 
     private void inorderRec(Node root) {
         if (root != null) {
-            inorderRec(root.lift);
-            System.out.println(" " + root.value);
+            inorderRec(root.left);
+            System.out.println(" " + root.data);
             inorderRec(root.right);
         }
     }
