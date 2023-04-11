@@ -50,10 +50,11 @@ hier wird der Integerzahl zuerst in die Liste hinzufügt könnte ich auch in die
  */
 
     public void insertFirst(int element) {
+        if(search(element)==-1){
         Node newNode = new Node(element);
         newNode.next = head;
         head = newNode;
-        count++;
+        count++;}
     }
 
 /*
@@ -66,22 +67,24 @@ steht gar nix in die Aufgabestellung
         if (index < 0 || index > count) {
             throw new ArrayIndexOutOfBoundsException();
         } else {
-            if (index == 0) insertFirst(element);
-            else {
+            if (search(element) == -1) {
+                if (index == 0) insertFirst(element);
+                else {
 
-                Node current = head;
-                for (int i = 0; i < index - 1; i++) {
-                    current = current.next;
+                    Node current = head;
+                    for (int i = 0; i < index - 1; i++) {
+                        current = current.next;
+                    }
+                    Node newNode = new Node(element);
+                    newNode.next = current.next;
+                    current.next = newNode;
+                    count++;
                 }
-                Node newNode = new Node(element);
-                newNode.next = current.next;
-                current.next = newNode;
-                count++;
+
+
             }
-
-
+            else System.out.println(element+"is vorhanden");
         }
-
     }
 /*
 hier wird eine Integerzahl an bestimmte index gelöscht
