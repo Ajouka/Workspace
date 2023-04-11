@@ -1,12 +1,20 @@
 public class Test {
     public static void main(String[] args) {
         var e = new BinaryTree();
-e.insert2(3);
-e.insert2(5);
-e.insert2(9);
-e.insert2(1);
-        System.out.println(e.search2(9));
+        e.insert(20);
+        e.insert(10);
+        e.insert(5);
+        e.insert(15);
+        e.insert(30);
+        e.insert(25);
+        e.insert(35);
+
+
+
+
+        System.out.println(e.search2(5));
+        System.out.println(e.search(5));
         e.inorder();
-        System.out.println(e.root.lift.value);
- }
+        System.out.println(e.root.value);
+    }
 }
