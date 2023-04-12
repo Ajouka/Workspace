@@ -1,0 +1,111 @@
+
+
+public class BinTree {
+    private Node root;
+
+    private class Node {
+        int data;
+        Node left;
+        Node right;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    private Node getNode(int x) {
+        Node current = root;
+        while (current != null) {
+            if (current.data == x) {
+                return current;
+            } else if (current.data > x) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        return null;
+    }
+
+    private Node getParentNode(int x) {
+        Node current = root;
+        Node parent = null;
+        while (current != null) {
+            if (current.data == x) {
+                return parent;
+            } else if (current.data > x) {
+                parent = current;
+                current = current.left;
+            } else {
+                parent = current;
+                current = current.right;
+            }
+        }
+        return null;
+    }
+
+    public void insert(int x) {
+        if (root == null) {
+            root = new Node(x);
+            return;
+        }
+
+        Node current = root;
+        while (true) {
+            if (current.data == x) {
+                throw new ArithmeticException("Value already exists in tree");
+            } else if (current.data > x) {
+                if (current.left == null) {
+                    current.left = new Node(x);
+                    return;
+                } else {
+                    current = current.left;
+                }
+            } else {
+                if (current.right == null) {
+                    current.right = new Node(x);
+                    return;
+                } else {
+                    current = current.right;
+                }
+            }
+        }
+    }
+
+    public void clear() {
+        root = null;
+    }
+
+    public void remove(int x) {
+        root = remove(root, x);
+    }
+
+    private Node remove(Node node, int x) {
+        if (node == null) {
+            throw new ArithmeticException("Value not found in tree");
+        }
+
+        if (node.data > x) {
+            node.left = remove(node.left, x);
+        } else if (node.data < x) {
+            node.right = remove(node.right, x);
+        } else { // node.data == x
+            if (node.left == null && node.right == null) { // no children
+                node = null;
+            } else if (node.left != null && node.right != null) { // two children
+                node.data = getMinValue(node.right);
+                node.right = remove(node.right, node.data);
+            } else { // one child
+                node = (node.left != null) ? node.left : node.right;
+            }
+        }
+        return node;
+    }
+
+    private int getMinValue(Node node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node.data;
+    }
+}

@@ -1,4 +1,4 @@
-public class BinaryTree {
+public class BinTree {
     public Node root;
     private int count;
 
@@ -12,62 +12,39 @@ public class BinaryTree {
         }
     }
 
-
-    public void show(int data) {
+    public Node getNode(int data) {
         Node current = root;
         while (current != null) {
             if (current.data == data) {
-                System.out.println(current.data + ":" + " left: " + current.left + " right:" + current.right);
+                return current;
             } else if (current.data > data) {
                 current = current.left;
             } else current = current.right;
         }
-        System.out.println(data + " isnt found ");
-
+        return null;
     }
 
-    public boolean search(int data) {
+
+    public Node getParentNode(int x) {
         Node current = root;
+        Node parent = null;
         while (current != null) {
-            if (current.data == data) {
-                return true;
-            } else if (current.data > data) {
+            if (current.data == x) {
+                return parent;
+            } else if (current.data > x) {
+                parent = current;
                 current = current.left;
-            } else current = current.right;
+            } else {
+                parent = current;
+                current = current.right;
+            }
         }
-        return false;
+        return null;
     }
 
-    public boolean search2(int element) {
-        return search2Rec(element, root);
-    }
-
-    private boolean search2Rec(int element, Node root) {
-        if (root == null) return false;
-        else if (root.data == element) return true;
-        return element > root.data ? search2Rec(element, root.right) : search2Rec(element, root.left);
-    }
-
-    public void insertrec(int element) {
-        root = insert2Rec(element, root);
-
-    }
-
-    private Node insert2Rec(int element, Node root) {
-
-        if (root == null) {
-            return new Node(element);
-
-        } else if (element < root.data) {
-            return insert2Rec(element, root.left);
-        } else if (element > root.data) {
-            return insert2Rec(element, root.right);
-        }
-        return this.root;
-    }
 
     public void insert(int element) {
-        if (search(element)) throw new ArithmeticException();
+        if (getNode(element) != null) throw new ArithmeticException("the value " + element + "is already inserted");
         else {
             if (root == null) {
                 root = new Node(element);
@@ -95,11 +72,40 @@ public class BinaryTree {
     }
 
     public void remove(int x) {
-        if (search(x)) {
+        root = remove(root, x);
+    }
 
+    private Node remove(Node node, int x) {
+        if (node == null) {
+            throw new ArithmeticException("Value not found in tree");
+        }
 
-        } else throw new ArithmeticException();
+        if (node.data > x) {
+            node.left = remove(node.left, x);
+        } else if (node.data < x) {
+            node.right = remove(node.right, x);
+        } else { // node.data == x
+            if (node.left == null && node.right == null) { // no children
+                node = null;
+            } else if (node.left != null && node.right != null) { // two children
+                node.data = getMinValue(node.right);
+                node.right = remove(node.right, node.data);
+            } else { // one child
+                node = (node.left != null) ? node.left : node.right;
+            }
+        }
+        return node;
+    }
 
+    private int getMinValue(Node node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node.data;
+    }
+
+    public void clear() {
+        root = null;
     }
 
     public void inorder() {
