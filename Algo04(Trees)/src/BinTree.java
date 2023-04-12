@@ -12,7 +12,7 @@ public class BinTree {
         }
     }
 
-    public Node getNode(int data) {
+    private Node getNode(int data) {
         Node current = root;
         while (current != null) {
             if (current.data == data) {
@@ -25,7 +25,7 @@ public class BinTree {
     }
 
 
-    public Node getParentNode(int x) {
+    private Node getParentNode(int x) {
         Node current = root;
         Node parent = null;
         while (current != null) {
@@ -118,6 +118,26 @@ public class BinTree {
             System.out.println(" " + root.data);
             inorderRec(root.right);
         }
+    }
+    public static void main(String[] args) {
+        BinTree tree = new BinTree();
+        tree.insert(20);
+        tree.insert(10);
+        tree.insert(30);
+        tree.insert(50);
+        int[] testcases = { 30, 35, 50 };
+        for (int testcase : testcases) {
+            Node node = tree.getNode(testcase);
+            if (node == null) {
+                System.out.println("Knoten " + testcase + " nicht gefunden.");
+            } else {
+                System.out.println("Knoten " + testcase + " gefunden: " + node.data);
+            }
+        }
+        tree.remove(30);
+        System.out.println("Knoten geloescht: 30");
+
+        System.out.println("Elternknoten von 50: " + tree.getParentNode(50).data);// 20
     }
 
 

@@ -1,111 +1,76 @@
-
-
-public class BinTree {
-    private Node root;
-
-    private class Node {
-        int data;
-        Node left;
-        Node right;
-
-        Node(int data) {
-            this.data = data;
-        }
-    }
-
-    private Node getNode(int x) {
+/*
+    public Node getParentNode2(int x) {
         Node current = root;
-        while (current != null) {
-            if (current.data == x) {
-                return current;
-            } else if (current.data > x) {
-                current = current.left;
-            } else {
-                current = current.right;
-            }
+        while (current.left != null && current.right != null) {
+            if ((current.left.data == x) || current.right.data == x) return current;
+            else if (x > current.data) current = current.right;
+            else current = current.left;
         }
         return null;
-    }
 
-    private Node getParentNode(int x) {
+    }
+    public boolean search(int data) {
         Node current = root;
-        Node parent = null;
         while (current != null) {
-            if (current.data == x) {
-                return parent;
-            } else if (current.data > x) {
-                parent = current;
+            if (current.data == data) {
+                return true;
+            } else if (current.data > data) {
                 current = current.left;
-            } else {
-                parent = current;
-                current = current.right;
-            }
+            } else current = current.right;
         }
-        return null;
+        return false;
     }
-
-    public void insert(int x) {
-        if (root == null) {
-            root = new Node(x);
-            return;
-        }
-
-        Node current = root;
-        while (true) {
-            if (current.data == x) {
-                throw new ArithmeticException("Value already exists in tree");
-            } else if (current.data > x) {
-                if (current.left == null) {
-                    current.left = new Node(x);
-                    return;
-                } else {
+    public void show(int data) {
+            Node current = root;
+            while (current != null) {
+                if (current.data == data) {
+                    System.out.println(current.data + ":" + " left: " + current.left + " right:" + current.right);
+                } else if (current.data > data) {
                     current = current.left;
-                }
-            } else {
-                if (current.right == null) {
-                    current.right = new Node(x);
-                    return;
-                } else {
-                    current = current.right;
-                }
+                } else current = current.right;
             }
-        }
-    }
+            System.out.println(data + " isnt found ");
 
-    public void clear() {
-        root = null;
-    }
-
-    public void remove(int x) {
-        root = remove(root, x);
-    }
-
-    private Node remove(Node node, int x) {
-        if (node == null) {
-            throw new ArithmeticException("Value not found in tree");
         }
 
-        if (node.data > x) {
-            node.left = remove(node.left, x);
-        } else if (node.data < x) {
-            node.right = remove(node.right, x);
-        } else { // node.data == x
-            if (node.left == null && node.right == null) { // no children
-                node = null;
-            } else if (node.left != null && node.right != null) { // two children
-                node.data = getMinValue(node.right);
-                node.right = remove(node.right, node.data);
-            } else { // one child
-                node = (node.left != null) ? node.left : node.right;
+
+
+        public boolean search2(int element) {
+            return search2Rec(element, root);
+        }
+
+        private boolean search2Rec(int element, Node root) {
+            if (root == null) return false;
+            else if (root.data == element) return true;
+            return element > root.data ? search2Rec(element, root.right) : search2Rec(element, root.left);
+        }
+
+        public void insertrec(int element) {
+            root = insert2Rec(element, root);
+
+        }
+
+        private Node insert2Rec(int element, Node root) {
+
+            if (root == null) {
+                return new Node(element);
+
+            } else if (element < root.data) {
+                return insert2Rec(element, root.left);
+            } else if (element > root.data) {
+                return insert2Rec(element, root.right);
             }
+            return this.root;
         }
-        return node;
+        public void inorder() {
+        inorderRec(root);
     }
 
-    private int getMinValue(Node node) {
-        while (node.left != null) {
-            node = node.left;
+    private void inorderRec(Node root) {
+        if (root != null) {
+            inorderRec(root.left);
+            System.out.println(" " + root.data);
+            inorderRec(root.right);
         }
-        return node.data;
     }
-}
+     */

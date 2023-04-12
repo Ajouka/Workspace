@@ -19,7 +19,7 @@ e.remove(20);
 
         System.out.println("--------");
         e.inorder();
-        System.out.println(e.getParentNode(5).data);
+        //System.out.println(e.getParentNode(5).data);
         System.out.println(e.root.data);
     }
 }
