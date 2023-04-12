@@ -26,6 +26,7 @@ public class BinTree {
 
 
     private Node getParentNode(int x) {
+        
         Node current = root;
         Node parent = null;
         while (current != null) {
