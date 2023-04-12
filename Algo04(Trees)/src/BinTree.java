@@ -1,6 +1,6 @@
 public class BinTree {
     public Node root;
-    private int count;
+
 
     public static class Node {
         public int data;
@@ -10,6 +10,10 @@ public class BinTree {
         public Node(int element) {
             this.data = element;
         }
+    }
+
+    public BinTree(){
+        root=null;
     }
 
     private Node getNode(int data) {
