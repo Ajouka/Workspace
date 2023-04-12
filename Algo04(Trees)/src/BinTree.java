@@ -80,17 +80,17 @@ public class BinTree {
             throw new ArithmeticException("Value not found in tree");
         }
 
-        if (node.data > x) {
+        if (node.data > x) { // wenn die
             node.left = remove(node.left, x);
         } else if (node.data < x) {
             node.right = remove(node.right, x);
         } else { // node.data == x
-            if (node.left == null && node.right == null) { // no children
+            if (node.left == null && node.right == null) { // die zu löschende Knote hat kein Kind knote
                 node = null;
-            } else if (node.left != null && node.right != null) { // two children
+            } else if (node.left != null && node.right != null) { // hat zwei kinderknoten
                 node.data = getMinValue(node.right);
                 node.right = remove(node.right, node.data);
-            } else { // one child
+            } else { // hat nur ein
                 node = (node.left != null) ? node.left : node.right;
             }
         }
