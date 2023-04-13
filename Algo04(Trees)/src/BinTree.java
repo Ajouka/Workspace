@@ -12,8 +12,8 @@ public class BinTree {
         }
     }
 
-    public BinTree(){
-        root=null;
+    public BinTree() {
+        root = null;
     }
 
     private Node getNode(int data) {
@@ -49,7 +49,8 @@ public class BinTree {
 
 
     public void insert(int element) {
-        if (getNode(element) != null) throw new ArithmeticException("the value " + element + "is already inserted");
+        if (getNode(element) != null) throw new ArithmeticException("the value "
+                + element + "is already inserted");
         else {
             if (root == null) {
                 root = new Node(element);
@@ -77,6 +78,7 @@ public class BinTree {
     }
 
     public void remove(int x) {
+
         root = remove(root, x);
     }
 
@@ -124,13 +126,14 @@ public class BinTree {
             inorderRec(root.right);
         }
     }
+
     public static void main(String[] args) {
         BinTree tree = new BinTree();
         tree.insert(20);
         tree.insert(10);
         tree.insert(30);
         tree.insert(50);
-        int[] testcases = { 30, 35, 50 };
+        int[] testcases = {30, 35, 50};
         for (int testcase : testcases) {
             Node node = tree.getNode(testcase);
             if (node == null) {

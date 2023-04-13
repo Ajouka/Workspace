@@ -8,9 +8,9 @@ public class B_Tree {
      *
      **/
 
-    public class Node{
+    static public class Node{
      int data;
-     int key[]=
+
 
     }
 }
