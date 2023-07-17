@@ -3,7 +3,7 @@ import java.util.*;
 public class Main {
 
     interface Old{
-        public static class Matse  {
+        class Matse  {
             private String name;
             private int nummer;
 
