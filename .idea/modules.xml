@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Algo Klausurvorbereitung/Algo Klausurvorbereitung.iml" filepath="$PROJECT_DIR$/Algo Klausurvorbereitung/Algo Klausurvorbereitung.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algo01/Algo01.iml" filepath="$PROJECT_DIR$/Algo01/Algo01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algo03/Algo03.iml" filepath="$PROJECT_DIR$/Algo03/Algo03.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algo04/Algo04.iml" filepath="$PROJECT_DIR$/Algo04/Algo04.iml" />
@@ -10,6 +11,8 @@
       <module fileurl="file://$PROJECT_DIR$/Algo06/Algo06.iml" filepath="$PROJECT_DIR$/Algo06/Algo06.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algo07_Graphs/Algo07_Graphs.iml" filepath="$PROJECT_DIR$/Algo07_Graphs/Algo07_Graphs.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algo10/Algo10.iml" filepath="$PROJECT_DIR$/Algo10/Algo10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java-Totur 02/Java-Totur 02.iml" filepath="$PROJECT_DIR$/Java-Totur 02/Java-Totur 02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java-Totur-Vorbereitung/Java-Totur-Vorbereitung.iml" filepath="$PROJECT_DIR$/Java-Totur-Vorbereitung/Java-Totur-Vorbereitung.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java_Totur01/Java_Totur01.iml" filepath="$PROJECT_DIR$/Java_Totur01/Java_Totur01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Python/Python.iml" filepath="$PROJECT_DIR$/Python/Python.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Workspace.iml" filepath="$PROJECT_DIR$/.idea/Workspace.iml" />
