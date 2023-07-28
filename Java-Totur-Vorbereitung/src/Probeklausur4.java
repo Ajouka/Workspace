@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class Probeklausur4 {
 
@@ -92,26 +92,38 @@ public class Probeklausur4 {
         return sum == number;
     }
 
+
     public static boolean comp(int[] a, int[] b) {
-        int[] bigger;
-        int[] smaller;
-        if (a.length >= b.length) {
-            bigger = Arrays.copyOf(a, a.length);
-            smaller = Arrays.copyOf(b, b.length);
-
-        } else {
-            bigger = Arrays.copyOf(b, b.length);
-            smaller = Arrays.copyOf(a, a.length);
-
+        HashSet<Integer> a1 = new HashSet<Integer>();
+        for (int i : a) {
+            a1.add(i);
+        }
+        HashSet<Integer> b1 = new HashSet<Integer>();
+        for (int i : b) {
+            b1.add(i);
         }
 
 
+
+        HashSet<Integer> bigger = new HashSet<>();
+        HashSet<Integer> smaller = new HashSet<>();
+        if (a1.size() > b1.size()) {
+            bigger = a1;
+            smaller = b1;
+        } else {
+            bigger = b1;
+            smaller = a1;
+        }
+
+
+
         outer:
-        for (int i = 0;i<bigger.length; i++) {
+        for (int i : bigger) {
 
             inner:
-            for (int j = 0; j < smaller.length; j++) {
-                if (bigger[i] % smaller[j] == 0) {
+            for (int j : smaller) {
+                if (i == j * j) {
+
                     continue outer;
                 }
 
@@ -122,17 +134,99 @@ public class Probeklausur4 {
 
         }
 
-        return true;
+        //return true;
 
+        return true;
+    }
+
+    public static int[] sortArray(int[] array) {
+        ArrayList<Integer> pos = new ArrayList<>();
+        ArrayList<Integer> odds = new ArrayList<>();
+        int[] res = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 != 0) {
+                odds.add(array[i]);
+                pos.add(i);
+
+            }
+        }
+        Comparator<Integer> cmp = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1.compareTo(o2);
+            }
+
+        };
+        odds.sort(cmp);
+        int counter = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (pos.contains(i)) {
+                res[i] = odds.get(counter);
+                counter++;
+                continue;
+            }
+            res[i] = array[i];
+
+
+        }
+
+        return res;
+    }
+
+    public static int[] sortArray1(int[] array) {
+
+        ArrayList<Integer> odds = new ArrayList<>();
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 != 0) {
+                odds.add(array[i]);
+
+
+            }
+        }
+        Collections.sort(odds);
+
+
+        for (int i = 0, j = 0; i < odds.size(); i++, j++) {
+            while (array[j] % 2 == 0) {
+                j++;
+            }
+            array[j] = odds.get(i);
+
+
+        }
+
+        return array;
+    }
+
+    public static int[] arrayDiff(int[] a, int[] b) {
+        // Your code here
+        ArrayList<Integer> a1 = new ArrayList<>();
+        for (int i : a) a1.add(i);
+        ArrayList<Integer> b1 = new ArrayList<>();
+        for (int j : b) b1.add(j);
+
+        a1.removeAll(b1);
+
+
+        return a1.stream().mapToInt(e->e).toArray();
+    }
+    public static String createPhoneNumber(int[] numbers) {
+        // Your code here!
+
+        return String.format("+(%d%d%d) %d%d%d-%d%d%d%d",numbers[0],numbers[1],numbers[2],numbers[3],numbers[4],numbers[5],numbers[6],numbers[7],numbers[8],numbers[9]);
 
     }
 
-
     public static void main(String[] args) {
-        int[] a = new int[]{121, 144, 19, 161, 19, 144, 19, 11};
-        int[] b = new int[]{121, 14641, 20736, 361, 25921, 361, 20736, 361};
+        int[] a = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+        int[] b = {9, 8, 7, 6, 5};
 
-        System.out.println(comp(a, b));
-        
+
+        System.out.println(Arrays.toString(arrayDiff(a, b)));
+        System.out.println(createPhoneNumber(a));
+
+
+
     }
 }
