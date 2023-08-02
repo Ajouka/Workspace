@@ -1,6 +1,8 @@
 public class main1 {
 
     public static void main(String[]args){
+        Nodelist v=new Nodelist();
+
         Nodelist x=new Nodelist();
         x.addFirst("a");
         x.addFirst("b");
