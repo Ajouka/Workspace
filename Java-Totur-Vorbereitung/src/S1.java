@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class S1 {
 
@@ -39,8 +37,7 @@ public class S1 {
             }
             if (i == 1) {
                 sum += (counter / 3) * 1000 + (counter % 3) * 100;
-            }
-            else if (i == 5) {
+            } else if (i == 5) {
                 sum += (counter / 3) * 500 + (counter % 3) * 50;
             } else {
                 if (counter >= 3) sum += i * 100;
@@ -52,47 +49,44 @@ public class S1 {
 
         return sum;
     }
+
     public static <T> List<T> josephusPermutation(final List<T> items, final int k) {
-        List<T> res=new LinkedList<>();
+        int pos = 0;
+        List<T> res = new ArrayList<T>();
+        while (!items.isEmpty()) {
+            pos = (pos - 1 + k) % items.size();
+            res.add(items.get(pos));
+            items.remove(pos);
 
 
-
+        }
 
 
         return res;
     }
-
-    public static void main(String[] args) {
-        Thread x=new Thread();
-
-        //String [] arr= {"ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"};
-        //System.out.println(longestConsec(arr,3));
-        int[] dice = {1, 1, 1, 1, 1};
-        int sum = 0;
-        for (int i = 1; i <= 6; i++) {
-            int counter = 0;
-            for (int s : dice) {
-                if (s == i) counter++;
-
-
-            }
-            System.out.println(counter);
-            if (i == 1) {
-                sum =sum+ ((counter / 3) * 1000) + ((counter % 3) * 100);
-
-
-            }
-            else if (i == 5) {
-                sum += (counter / 3) * 500 + (counter % 3) * 50;
-
-            } else {
-                if (counter >= 3) sum += i * 100;
-
-            }
-
+    public static double solution(int[] arr1, int[] arr2) {
+        int sum=0;
+        for(int i=0;i<arr1.length;i++){
+            sum+=Math.abs(arr1[i]-arr2[i])*Math.abs(arr1[i]-arr2[i]);
 
         }
-        System.out.println(sum);
+        return (double) sum / arr1.length;
+    }
+    public static String makeReadable(int seconds) {
+        // Do something
+        int hh=seconds/3600;
+        seconds=seconds%3600;
+        int mm=seconds/60;
+        int sec=seconds%60;
+
+
+
+        return String.format("%02d:%02d:%02d",hh,mm,sec);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(makeReadable(5));
+
 
     }
 }
