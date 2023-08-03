@@ -63,6 +63,8 @@ public class S1 {
     }
 
     public static void main(String[] args) {
+        Thread x=new Thread();
+
         //String [] arr= {"ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"};
         //System.out.println(longestConsec(arr,3));
         int[] dice = {1, 1, 1, 1, 1};
