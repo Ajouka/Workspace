@@ -64,29 +64,81 @@ public class S1 {
 
         return res;
     }
+
     public static double solution(int[] arr1, int[] arr2) {
-        int sum=0;
-        for(int i=0;i<arr1.length;i++){
-            sum+=Math.abs(arr1[i]-arr2[i])*Math.abs(arr1[i]-arr2[i]);
+        int sum = 0;
+        for (int i = 0; i < arr1.length; i++) {
+            sum += Math.abs(arr1[i] - arr2[i]) * Math.abs(arr1[i] - arr2[i]);
 
         }
         return (double) sum / arr1.length;
     }
+
     public static String makeReadable(int seconds) {
         // Do something
-        int hh=seconds/3600;
-        seconds=seconds%3600;
-        int mm=seconds/60;
-        int sec=seconds%60;
+        int hh = seconds / 3600;
+        seconds = seconds % 3600;
+        int mm = seconds / 60;
+        int sec = seconds % 60;
 
 
-
-        return String.format("%02d:%02d:%02d",hh,mm,sec);
+        return String.format("%02d:%02d:%02d", hh, mm, sec);
     }
 
+    public static String stripComments(String text, String[] commentSymbols) {
+        String[] x1 = text.split("\n");
+
+        for (String s : commentSymbols) {
+            for (int i = 0; i < x1.length; i++) {
+                if (x1[i].contains(s)) {
+                    x1[i] = (x1[i].substring(0, x1[i].indexOf(s))).trim();
+                }
+
+            }
+
+        }
+        String x = "";
+        for (int i = 0; i < x1.length; i++) {
+
+            if (i == x1.length - 1) x += x1[i].stripTrailing();
+            else x += x1[i].stripTrailing() + "\n";
+
+
+        }
+
+
+        return x;
+    }
+
+    public static String rot13(String message) {
+
+        //A(65)---->Z(90)
+        //a(97)------>z(122)
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < message.length(); i++) {
+            int a = message.charAt(i);
+            if (a >= 65 && a <= 90) {
+                a = a <= 77 ? a + 13 : a - 13;
+                res.append((char) a);
+
+            } else if (a >= 97 && a <= 122) {
+                a = a <= 109 ? a + 13 : a - 13;
+                res.append((char) a);
+
+            } else {
+                res.append(message.charAt(i));
+
+            }
+
+
+        }
+
+        return res.toString();
+    }
+
+    public static String rearrenge(String s)
+
     public static void main(String[] args) {
-        System.out.println(makeReadable(5));
-
-
+        System.out.println(rot13("This is my first ROT13 excercise!"));
     }
 }
