@@ -27,18 +27,20 @@ public class UserInput {
             Datenbestand x = new Datenbestand();
             byte[] res = x.ergaenzen();
 
-            for (int i = 0; i < x.data.length; i++) {
-                System.out.println(String.format("%8s", Integer.toBinaryString(x.data[i] & 0xFF)).replace(' ', '0') + "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
+            File f= new File("out.dat");
+            PrintWriter pw=new PrintWriter(f);
+            for(int i=0;i<x.data.length;i++){
+                pw.println(String.format("%8s", Integer.toBinaryString(x.data[i] & 0xFF)).replace(' ', '0')+ "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
+
             }
+            pw.close();
 
         } else if (Objects.equals(input, "n")) {
             String input1 = JOptionPane.showInputDialog("bitte geben sie die FilePath");
             Datenbestand x = new Datenbestand(fileToByteArray(input1));
             byte[] res = x.ergaenzen();
 
-//            for (int i = 0; i < x.data.length; i++) {
-//                System.out.println(String.format("%8s", Integer.toBinaryString(x.data[i] & 0xFF)).replace(' ', '0') + "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
-//            }
+
 
            File f= new File("out.dat");
            PrintWriter pw=new PrintWriter(f);
