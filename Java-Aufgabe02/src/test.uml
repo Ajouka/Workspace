@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>test</OriginalElement>
+  <nodes>
+    <node x="94.36173633440512" y="56.54019292604494">test</node>
+    <node x="-304.7202572347267" y="37.85852090032154">Byte</node>
+    <node x="-78.0" y="184.0">Datenbestand</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="test" target="Datenbestand" relationship="CREATE">
+      <point x="0.0" y="-39.0" />
+      <point x="177.36173633440512" y="311.0" />
+      <point x="4.5" y="311.0" />
+      <point x="0.0" y="51.0" />
+    </edge>
+    <edge source="Datenbestand" target="Byte" relationship="CREATE">
+      <point x="0.0" y="-51.0" />
+      <point x="4.5" y="159.0" />
+      <point x="-220.22025723472672" y="159.0" />
+      <point x="0.0" y="74.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6941964285714286" showDependencies="true" x="-9.668810289389057" y="209.99999999999997" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

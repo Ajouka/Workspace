@@ -1,32 +1,15 @@
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Random;
+import javax.swing.*;
+import java.io.IOException;
 
-public class Main {
-
-
-    public static void main(String[]args){
-
-        byte[] data = new byte[100];
-        // Füllen Sie das Array data mit Ihren Daten
-        Random rand = new Random();
+public class Main extends UserInput {
 
 
-        rand.nextBytes(data);
-        byte x=data[0];
-        int firstHalf=(x>>4)&0x0F;
-        System.out.println(Arrays.toString(data));
-        System.out.println(Integer.toBinaryString(x));
-        System.out.println(Integer.bitCount(firstHalf&0x0F));
-
-
+    public static void main(String[] args) throws IOException {
+//        Datenbestand x =new Datenbestand();
+//        for(byte a :x.data){
+//        System.out.println(String.format("%8s",Integer.toBinaryString(a&0xFF)).replace(' ', '0'));}
+        UserInput.main(args);
 
 
     }
-
-
-
-
-
-
 }
