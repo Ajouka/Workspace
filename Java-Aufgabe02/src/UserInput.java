@@ -27,7 +27,7 @@ public class UserInput {
             Datenbestand x = new Datenbestand();
             byte[] res = x.ergaenzen();
 
-            File f= new File("out.dat");
+            File f= new File("C:\\Workspace\\Workspace\\Java-Aufgabe02\\src\\out.dat");
             PrintWriter pw=new PrintWriter(f);
             for(int i=0;i<x.data.length;i++){
                 pw.println(String.format("%8s", Integer.toBinaryString(x.data[i] & 0xFF)).replace(' ', '0')+ "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
@@ -42,7 +42,7 @@ public class UserInput {
 
 
 
-           File f= new File("out.dat");
+           File f= new File("C:\\Workspace\\Workspace\\Java-Aufgabe02\\src\\out.dat");
            PrintWriter pw=new PrintWriter(f);
            for(int i=0;i<x.data.length;i++){
             pw.println(String.format("%8s", Integer.toBinaryString(x.data[i] & 0xFF)).replace(' ', '0')+ "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
