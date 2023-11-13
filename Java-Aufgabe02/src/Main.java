@@ -1,14 +1,15 @@
 import javax.swing.*;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 
 public class Main extends UserInput {
 
 
     public static void main(String[] args) throws IOException {
-//        Datenbestand x =new Datenbestand();
-//        for(byte a :x.data){
-//        System.out.println(String.format("%8s",Integer.toBinaryString(a&0xFF)).replace(' ', '0'));}
-        UserInput.main(args);
+
+         UserInput.main(args);
 
 
     }
