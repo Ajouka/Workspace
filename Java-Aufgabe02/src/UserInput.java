@@ -21,6 +21,18 @@ public class UserInput {
         return res;
     }
 
+    public static void fileWriter(String fileName,Datenbestand x,byte[]res) throws FileNotFoundException {
+        File f= new File("C:\\Workspace\\Workspace\\Java-Aufgabe02\\src\\"+fileName+".dat");
+        PrintWriter pw=new PrintWriter(f);
+        for(int i=0;i<x.data.length;i++){
+            pw.println(String.format("%8s", Integer.toBinaryString(x.data[i] & 0xFF)).replace(' ', '0')+ "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
+
+        }
+        pw.close();
+
+
+    }
+
     public static void start() throws IOException {
         String[]options={"Bytes random generieren","Filepfad eingeben","abbrechen"};
 
@@ -29,28 +41,19 @@ public class UserInput {
             Datenbestand x = new Datenbestand();
             byte[] res = x.ergaenzen();
 
-            File f= new File("out.dat");
-            PrintWriter pw=new PrintWriter(f);
-            for(int i=0;i<x.data.length;i++){
-                pw.println(String.format("%8s", Integer.toBinaryString(x.data[i] & 0xFF)).replace(' ', '0')+ "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
 
-            }
-            pw.close();
+            String input1=JOptionPane.showInputDialog("bitte Name der Output file eingeben");
+
+            fileWriter(input1,x,res);
 
         } else if (input==1) {
             String input1 = JOptionPane.showInputDialog("bitte geben sie die FilePath");
             Datenbestand x = new Datenbestand(fileToByteArray(input1));
             byte[] res = x.ergaenzen();
 
+            String input2=JOptionPane.showInputDialog("bitte Name der Output file eingeben");
 
-
-           File f= new File("C:\\Workspace\\Workspace\\Java-Aufgabe02\\src\\out.dat");
-           PrintWriter pw=new PrintWriter(f);
-           for(int i=0;i<x.data.length;i++){
-            pw.println(String.format("%8s", Integer.toBinaryString(x.data[i] & 0xFF)).replace(' ', '0')+ "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
-
-           }
-           pw.close();
+            fileWriter(input2,x,res);
 
 
 
