@@ -9,7 +9,8 @@ public class Main extends UserInput {
 
     public static void main(String[] args) throws IOException {
 
-         UserInput.main(args);
+
+        UserInput.start();
 
 
     }
