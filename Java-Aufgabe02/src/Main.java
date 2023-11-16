@@ -9,14 +9,15 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        Datenbestand a =new Datenbestand();
+        /*Datenbestand a = new Datenbestand();
 
-        byte x=70;
 
-        System.out.println(Integer.toBinaryString(x));
-        System.out.println(String.format("%8s",Integer.toBinaryString(x&0xFF).replace(' ','0')));
 
-        //UserInput.start();
+        System.out.println(Integer.toBinaryString(a.getData()[0]));
+        System.out.println(String.format("%8s",
+                Integer.toBinaryString(a.getData()[0] & 0xFF)).replace(' ', '0'));
+        System.out.println(Integer.bitCount(a.getData()[0]));*/
+          UserInput.start();
 
 
     }

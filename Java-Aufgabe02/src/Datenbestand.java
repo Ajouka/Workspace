@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Datenbestand {
 
-    public byte[] data=new byte[100];
+    private byte[] data=new byte[100];
 
 
     public Datenbestand(){
@@ -14,13 +14,18 @@ public class Datenbestand {
         this.data=a;
     }
 
+    public byte[] getData(){
+        return this.data;
+
+    }
+
     public byte[] ergaenzen(){
         byte[] res=new byte[data.length];
         for(int i=0;i<data.length;i++){
          Byte a=new Byte(data[i]);
          //int firstHalfZeros = Byte.countZeros(a.firstHalf);
          if(a.isMatched()){
-             res[i]=(byte) ((a.firstHalfZeros << 4) | (4 - a.firstHalfZeros)) ;
+             res[i]=(byte) ((a.getFirstHalfZeros() << 4) | (4 - a.getFirstHalfZeros())) ;
          }
          else res[i]=data[i];
         }

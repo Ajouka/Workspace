@@ -1,10 +1,10 @@
 public class Byte {
-    public int firstHalf;
-    public int secondHalf;
+    private int firstHalf;
+    private int secondHalf;
 
-    public int firstHalfZeros;
+    private int firstHalfZeros;
 
-    public int secondHalfZeros;
+    private int secondHalfZeros;
 
 
     public Byte(byte b){
@@ -12,6 +12,10 @@ public class Byte {
         this.secondHalf=b & 0x0F;
         this.firstHalfZeros=Integer.bitCount(~firstHalf&0x0F);
         this.secondHalfZeros=Integer.bitCount(~secondHalf&0x0F);
+
+    }
+    public int getFirstHalfZeros(){
+        return this.firstHalfZeros;
 
     }
 
