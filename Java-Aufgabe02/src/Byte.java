@@ -1,10 +1,10 @@
 public class Byte {
-    private int firstHalf;
-    private int secondHalf;
+    private final int firstHalf;
+    private final int secondHalf;
 
-    private int firstHalfZeros;
+    private final int firstHalfZeros;
 
-    private int secondHalfZeros;
+    private final int secondHalfZeros;
 
 
     public Byte(byte b){
@@ -18,10 +18,19 @@ public class Byte {
         return this.firstHalfZeros;
 
     }
-
     public boolean isMatched(){
         return firstHalfZeros == secondHalfZeros;
 
     }
+
+    public int getFirstHalf() {
+        return firstHalf;
+    }
+
+    public int getSecondHalf() {
+        return secondHalf;
+    }
+
+
 
 }
