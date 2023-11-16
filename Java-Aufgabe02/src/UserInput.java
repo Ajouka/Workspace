@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,11 +22,14 @@ public class UserInput {
         return res;
     }
 
-    public static void fileWriter(String fileName,Datenbestand x,byte[]res) throws FileNotFoundException {
-        File f= new File("C:\\Workspace\\Workspace\\Java-Aufgabe02\\src\\"+fileName+".dat");
-        PrintWriter pw=new PrintWriter(f);
-        for(int i=0;i<x.data.length;i++){
-            pw.println(String.format("%8s", Integer.toBinaryString(x.data[i] & 0xFF)).replace(' ', '0')+ "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
+
+    public static void fileWriter(String fileName, Datenbestand x, byte[] res) throws FileNotFoundException {
+
+
+        File f = new File("C:\\Workspace\\Workspace\\Java-Aufgabe02\\src\\" + fileName + ".dat");
+        PrintWriter pw = new PrintWriter(f);
+        for (int i = 0; i < x.data.length; i++) {
+            pw.println(String.format("%8s", Integer.toBinaryString(x.data[i] & 0xFF)).replace(' ', '0') + "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
 
         }
         pw.close();
@@ -34,27 +38,26 @@ public class UserInput {
     }
 
     public static void start() throws IOException {
-        String[]options={"Bytes random generieren","Filepfad eingeben","abbrechen"};
+        String[] options = {"Bytes random generieren", "Filepfad eingeben", "abbrechen"};
 
-        int input = (JOptionPane.showOptionDialog(null,"bitte ihren Option wählen","Bytes Ergänzer",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.INFORMATION_MESSAGE,null,options,"abbrechen"));
-        if (input==0) {
+        int input = (JOptionPane.showOptionDialog(null, "bitte ihren Option wählen", "Bytes Ergänzer", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, "abbrechen"));
+        if (input == 0) {
             Datenbestand x = new Datenbestand();
             byte[] res = x.ergaenzen();
 
 
-            String input1=JOptionPane.showInputDialog("bitte Name der Output file eingeben");
+            String input1 = JOptionPane.showInputDialog("bitte Name der Output file eingeben");
+            if (input1 == null) return;
+            fileWriter(input1, x, res);
 
-            fileWriter(input1,x,res);
-
-        } else if (input==1) {
+        } else if (input == 1) {
             String input1 = JOptionPane.showInputDialog("bitte geben sie die FilePath");
             Datenbestand x = new Datenbestand(fileToByteArray(input1));
             byte[] res = x.ergaenzen();
 
-            String input2=JOptionPane.showInputDialog("bitte Name der Output file eingeben");
-
-            fileWriter(input2,x,res);
-
+            String input2 = JOptionPane.showInputDialog("bitte Name der Output file eingeben");
+            if (input2 == null) return;
+            fileWriter(input2, x, res);
 
 
         }
