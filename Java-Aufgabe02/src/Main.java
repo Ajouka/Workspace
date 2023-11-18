@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Datenbestand a = new Datenbestand();
+        /*Datenbestand a = new Datenbestand();
         byte[] b=a.ergaenzen();
-        Byte c =new Byte(b[0]);
+        Byte c =new Byte(b[0]);*/
 
 
         /*Datenbestand a = new Datenbestand();

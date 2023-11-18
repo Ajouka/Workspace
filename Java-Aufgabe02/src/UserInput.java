@@ -25,7 +25,7 @@ public class UserInput {
     public static void fileWriter(String fileName, Datenbestand x, byte[] res) throws FileNotFoundException {
 
 
-        File f = new File("C:\\Workspace\\Workspace\\Java-Aufgabe02\\src\\" + fileName + ".dat");
+        File f = new File( "Java-Aufgabe02/src/"+fileName + ".dat");
         PrintWriter pw = new PrintWriter(f);
         for (int i = 0; i < x.getData().length; i++) {
             pw.println(String.format("%8s", Integer.toBinaryString(x.getData()[i] & 0xFF)).replace(' ', '0') + "  " + String.format("%8s", Integer.toBinaryString(res[i] & 0xFF)).replace(' ', '0'));
