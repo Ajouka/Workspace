@@ -19,8 +19,13 @@ public class Main {
         System.out.println(Integer.toBinaryString(a.getData()[0]));
         System.out.println(String.format("%8s",
                 Integer.toBinaryString(a.getData()[0] & 0xFF)).replace(' ', '0'));
+
         System.out.println(Integer.bitCount(a.getData()[0]));*/
+
+
+
           UserInput.start();
+
 
 
     }
