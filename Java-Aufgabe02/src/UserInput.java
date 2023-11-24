@@ -42,7 +42,7 @@ public class UserInput {
         int input = (JOptionPane.showOptionDialog(null, "bitte ihren Option wählen", "Bytes Ergänzer", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, "abbrechen"));
         if (input == 0) {
             Datenbestand x = new Datenbestand();
-            byte[] res = x.ergaenzen();
+            byte[] res = x.byteUpdate();
 
 
             String input1 = JOptionPane.showInputDialog("bitte Name der Output file eingeben");
@@ -52,7 +52,7 @@ public class UserInput {
         } else if (input == 1) {
             String input1 = JOptionPane.showInputDialog("bitte geben sie die FilePath");
             Datenbestand x = new Datenbestand(fileToByteArray(input1));
-            byte[] res = x.ergaenzen();
+            byte[] res = x.byteUpdate();
 
             String input2 = JOptionPane.showInputDialog("bitte Name der Output file eingeben");
             if (input2 == null) return;
