@@ -1,29 +1,35 @@
-import java.util.LinkedList;
 import java.util.Random;
 
 public class Datenbestand {
 
-    public byte[] data=new byte[100];
+    private byte[] data = new byte[100];
 
 
-    public Datenbestand(){
+    public Datenbestand() {
         Random rand = new Random();
         rand.nextBytes(data);
 
     }
-    public Datenbestand(byte[]a){
-        this.data=a;
+
+    public Datenbestand(byte[] a) {
+        this.data = a;
     }
 
-    public byte[] ergaenzen(){
-        byte[] res=new byte[data.length];
-        for(int i=0;i<data.length;i++){
-         Byte a=new Byte(data[i]);
-         int firstHalfZeros = a.countZeros(a.firstHalf);
-         if(a.erkennen()){
-             res[i]=(byte) ((firstHalfZeros << 4) | (4 - firstHalfZeros)) ;
-         }
-         else res[i]=data[i];
+    public byte[] getData() {
+        return this.data;
+
+    }
+
+    public byte[] byteUpdate() {
+        byte[] res = new byte[data.length];
+        for (int i = 0; i < data.length; i++) {
+            Byte a = new Byte(data[i]);
+
+            if (a.isMatched()) {
+
+                res[i] =
+                        (byte) ((a.getFirstHalfZeros() << 4) | (4 - a.getFirstHalfZeros())); // zB (0011 0000 |0000 0001 = 0011 0001 )
+            } else res[i] = data[i];
         }
 
         return res;
