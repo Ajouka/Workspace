@@ -28,7 +28,8 @@ public class Datenbestand {
             if (a.isMatched()) {
 
                 res[i] =
-                        (byte) ((a.getFirstHalfZeros() << 4) | (4 - a.getFirstHalfZeros())); // zB (0011 0000 |0000 0001 = 0011 0001 )
+                        (byte) ((a.getFirstHalfZeros() << 4)
+                                | (4 - a.getFirstHalfZeros()));
             } else res[i] = data[i];
         }
 
