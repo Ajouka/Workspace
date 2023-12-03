@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AdventCode23/AdventCode23.iml" filepath="$PROJECT_DIR$/AdventCode23/AdventCode23.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algo Klausurvorbereitung/Algo Klausurvorbereitung.iml" filepath="$PROJECT_DIR$/Algo Klausurvorbereitung/Algo Klausurvorbereitung.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algo01/Algo01.iml" filepath="$PROJECT_DIR$/Algo01/Algo01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algo03/Algo03.iml" filepath="$PROJECT_DIR$/Algo03/Algo03.iml" />
