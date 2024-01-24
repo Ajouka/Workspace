@@ -1,21 +1,17 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 
+import java.util.*;
 
 
 public class Main {
 
 
-
     public static void main(String[] args) {
-StringBuilder data =new StringBuilder();
-        System.out.println(data);
-        String s="11110111100000111100001111111111111";
-
-        ArrayList<Integer> al=new ArrayList<>();
-        al=Fax.encode(s);
-        System.out.println(al);
-        System.out.println(Fax.entcoden(al));
-
+        /*Datensatz s = new Datensatz();
+        String x = s.getDataString().toString();
+        System.out.println(x);
+        ArrayList<Integer> list=Fax.encode(s.getDataString().toString());
+        System.out.println(list);
+        System.out.println(Fax.entcoden(list));*/
+        System.out.println(Integer.parseInt("11111111",2));
     }
 }

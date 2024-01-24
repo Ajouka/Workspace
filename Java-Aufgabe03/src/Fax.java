@@ -27,14 +27,14 @@ public class Fax {
     public static String entcoden(ArrayList<Integer> list) {
         StringBuilder res = new StringBuilder();
         boolean isOne = true;
-        for (int i = 0; i < list.size(); i++) {
+        for (Integer integer : list) {
             if (isOne) {
-                res.append("1".repeat(list.get(i)));
+                res.append("1".repeat(integer));
                 isOne = false;
                 continue;
             }
             if (!isOne) {
-                res.append("0".repeat(list.get(i)));
+                res.append("0".repeat(integer));
                 isOne = true;
                 continue;
             }
