@@ -4,9 +4,9 @@ import java.util.ArrayList;
 public class Fax {
     public static ArrayList<Integer> encode(String binary) {
         ArrayList<Integer> res = new ArrayList<Integer>();
-        char current = binary.charAt(0);
-        int counter = 1;
-        for (int i = 1; i < binary.length(); i++) {
+        char current = '1';
+        int counter = 0;
+        for (int i = 0; i < binary.length(); i++) {
             if (binary.charAt(i) == current) {
                 counter++;
             } else {
@@ -33,7 +33,7 @@ public class Fax {
                 isOne = false;
                 continue;
             }
-            if (!isOne) {
+            else {
                 res.append("0".repeat(integer));
                 isOne = true;
                 continue;

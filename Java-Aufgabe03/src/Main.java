@@ -6,12 +6,12 @@ public class Main {
 
 
     public static void main(String[] args) {
-        /*Datensatz s = new Datensatz();
-        String x = s.getDataString().toString();
+        Datensatz s = new Datensatz();
+        String x ="000"+ s.getDataString().toString();
         System.out.println(x);
-        ArrayList<Integer> list=Fax.encode(s.getDataString().toString());
+        ArrayList<Integer> list=Fax.encode(x);
         System.out.println(list);
-        System.out.println(Fax.entcoden(list));*/
-        System.out.println(Integer.parseInt("11111111",2));
+        System.out.println(Fax.entcoden(list));
+
     }
 }
