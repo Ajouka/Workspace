@@ -1,4 +1,3 @@
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class Fax {
@@ -24,7 +23,7 @@ public class Fax {
         return res;
     }
 
-    public static String entcoden(ArrayList<Integer> list) {
+    public static String decode(ArrayList<Integer> list) {
         StringBuilder res = new StringBuilder();
         boolean isOne = true;
         for (Integer integer : list) {
