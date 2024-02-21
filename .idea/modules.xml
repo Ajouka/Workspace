@@ -2,28 +2,29 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AdventCode23/AdventCode23.iml" filepath="$PROJECT_DIR$/AdventCode23/AdventCode23.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Algo Klausurvorbereitung/Algo Klausurvorbereitung.iml" filepath="$PROJECT_DIR$/Algo Klausurvorbereitung/Algo Klausurvorbereitung.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Algo01/Algo01.iml" filepath="$PROJECT_DIR$/Algo01/Algo01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Algo03/Algo03.iml" filepath="$PROJECT_DIR$/Algo03/Algo03.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Algo04/Algo04.iml" filepath="$PROJECT_DIR$/Algo04/Algo04.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Algo04(Trees)/Algo04(Trees).iml" filepath="$PROJECT_DIR$/Algo04(Trees)/Algo04(Trees).iml" />
-      <module fileurl="file://$PROJECT_DIR$/Algo05/Algo05.iml" filepath="$PROJECT_DIR$/Algo05/Algo05.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Algo06/Algo06.iml" filepath="$PROJECT_DIR$/Algo06/Algo06.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Algo07_Graphs/Algo07_Graphs.iml" filepath="$PROJECT_DIR$/Algo07_Graphs/Algo07_Graphs.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Algo10/Algo10.iml" filepath="$PROJECT_DIR$/Algo10/Algo10.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java-Aufgabe/Java-Aufgabe.iml" filepath="$PROJECT_DIR$/Java-Aufgabe/Java-Aufgabe.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java-Aufgabe02/Java-Aufgabe02.iml" filepath="$PROJECT_DIR$/Java-Aufgabe02/Java-Aufgabe02.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java-Aufgabe03/Java-Aufgabe03.iml" filepath="$PROJECT_DIR$/Java-Aufgabe03/Java-Aufgabe03.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java-Totur 02/Java-Totur 02.iml" filepath="$PROJECT_DIR$/Java-Totur 02/Java-Totur 02.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java-Totur-Vorbereitung/Java-Totur-Vorbereitung.iml" filepath="$PROJECT_DIR$/Java-Totur-Vorbereitung/Java-Totur-Vorbereitung.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java-Totur-Vorbereitung-2/Java-Totur-Vorbereitung-2.iml" filepath="$PROJECT_DIR$/Java-Totur-Vorbereitung-2/Java-Totur-Vorbereitung-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/AdventCode23/AdventCode23.iml" filepath="$PROJECT_DIR$/Java/AdventCode23/AdventCode23.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/Algo Klausurvorbereitung/Algo Klausurvorbereitung.iml" filepath="$PROJECT_DIR$/Algo/Algo Klausurvorbereitung/Algo Klausurvorbereitung.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/Algo01/Algo01.iml" filepath="$PROJECT_DIR$/Algo/Algo01/Algo01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/Algo03/Algo03.iml" filepath="$PROJECT_DIR$/Algo/Algo03/Algo03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/Algo04/Algo04.iml" filepath="$PROJECT_DIR$/Algo/Algo04/Algo04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/Algo04(Trees)/Algo04(Trees).iml" filepath="$PROJECT_DIR$/Algo/Algo04(Trees)/Algo04(Trees).iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/Algo05/Algo05.iml" filepath="$PROJECT_DIR$/Algo/Algo05/Algo05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/Algo06/Algo06.iml" filepath="$PROJECT_DIR$/Algo/Algo06/Algo06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/Algo07_Graphs/Algo07_Graphs.iml" filepath="$PROJECT_DIR$/Algo/Algo07_Graphs/Algo07_Graphs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/Algo10/Algo10.iml" filepath="$PROJECT_DIR$/Algo/Algo10/Algo10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Java-Aufgabe/Java-Aufgabe.iml" filepath="$PROJECT_DIR$/Java/Java-Aufgabe/Java-Aufgabe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Java-Aufgabe02/Java-Aufgabe02.iml" filepath="$PROJECT_DIR$/Java/Java-Aufgabe02/Java-Aufgabe02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Java-Aufgabe03/Java-Aufgabe03.iml" filepath="$PROJECT_DIR$/Java/Java-Aufgabe03/Java-Aufgabe03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Java-Totur 02/Java-Totur 02.iml" filepath="$PROJECT_DIR$/Java/Java-Totur 02/Java-Totur 02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Java-Totur-Vorbereitung/Java-Totur-Vorbereitung.iml" filepath="$PROJECT_DIR$/Java/Java-Totur-Vorbereitung/Java-Totur-Vorbereitung.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Java-Totur-Vorbereitung-2/Java-Totur-Vorbereitung-2.iml" filepath="$PROJECT_DIR$/Java/Java-Totur-Vorbereitung-2/Java-Totur-Vorbereitung-2.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaScript.iml" filepath="$PROJECT_DIR$/JavaScript.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java_Totur01/Java_Totur01.iml" filepath="$PROJECT_DIR$/Java_Totur01/Java_Totur01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Java_Totur01/Java_Totur01.iml" filepath="$PROJECT_DIR$/Java/Java_Totur01/Java_Totur01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KlausurVorbereitung/KlausurVorbereitung.iml" filepath="$PROJECT_DIR$/KlausurVorbereitung/KlausurVorbereitung.iml" />
       <module fileurl="file://$PROJECT_DIR$/Python/Python.iml" filepath="$PROJECT_DIR$/Python/Python.iml" />
       <module fileurl="file://$PROJECT_DIR$/SWT-JUnit/SWT-JUnit.iml" filepath="$PROJECT_DIR$/SWT-JUnit/SWT-JUnit.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Workspace.iml" filepath="$PROJECT_DIR$/.idea/Workspace.iml" />
-      <module fileurl="file://$PROJECT_DIR$/algo02/algo02.iml" filepath="$PROJECT_DIR$/algo02/algo02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/algo02/algo02.iml" filepath="$PROJECT_DIR$/Algo/algo02/algo02.iml" />
     </modules>
   </component>
 </project>
