@@ -1,12 +1,32 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr1 = {4, 5, 6, 7, 8, 1};
-        int[] arr2 = {4, 5, 1, 7, 8};
+        int[] arr1 = {4, 5, 6, 7, 8, 9};
+        int[] arr2 = {1, 4, 5, 7, 8};
         int[] intersection = intersection(arr1, arr2, arr1.length - 1, arr2.length - 1);
 
         System.out.println(Arrays.toString(intersection));
+        System.out.println(funktion(10000,3));
+    }
+
+    public static List<Integer> funktion(int n, int k) {
+        LinkedList<Integer> persons = new LinkedList<>();
+        for (int i = 1; i <= n; i++) {
+            persons.add(i);
+        }
+
+        List<Integer> lastTwo = new ArrayList<>();
+        int index = 0;
+        while (persons.size() > 2) {
+            index = (index + k - 1) % persons.size(); // -1, weil wir bei 0 anfangen zu zählen
+            persons.remove(index);
+        }
+        lastTwo.addAll(persons);
+        return lastTwo;
     }
 
 
