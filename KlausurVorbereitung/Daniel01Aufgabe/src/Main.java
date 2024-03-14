@@ -8,9 +8,9 @@ public class Main {
         int[] arr1 = {4, 5, 6, 7, 8, 9};
         int[] arr2 = {1, 4, 5, 7, 8};
         int[] intersection = intersection(arr1, arr2, arr1.length - 1, arr2.length - 1);
-
-        System.out.println(Arrays.toString(intersection));
-        System.out.println(funktion(10000,3));
+        Geheim x = new Geheim("abcd");
+        x.input();
+        x.output();
     }
 
     public static List<Integer> funktion(int n, int k) {
