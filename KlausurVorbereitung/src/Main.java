@@ -38,8 +38,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String[] text={"abcccdddda","bcccccaba","bab"};
-        System.out.println(sucheAB(text));;
+        Bruch x = new Bruch(2,4);
+        System.out.println(x.toString());
+        System.out.println(x.counter);
+        x.setZaehler(3);
+        System.out.println(x.counter);
+        var y=new Bruch(3,2);
+        x.add(y);
 
     }
 }
