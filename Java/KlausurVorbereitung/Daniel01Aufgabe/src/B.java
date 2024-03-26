@@ -10,8 +10,8 @@ public class B {
         this.a = a; // Assigning the value of a to the instance variable a
         this.j = b; // Assigning the value of b to the instance variable j
         this.d1 = d; // Assigning the value of d to the instance variable d1
-        this.f = (float)c; // Casting c to float and assigning to the instance variable f
-        cnt++; // Incrementing the static variable cnt
+        this.f = (float)c;
+        cnt++;
     }
 
     // Constructor with a mix of wrapper and primitive data types
