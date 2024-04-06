@@ -21,12 +21,10 @@ def trapezium_vec(f, a, b, n):
     return h / 2 * (f(a) + 2 * sum(f(vec)) + f(b))
 
 
-f1x = lambda x: x ** -2  #man kan das als normale funktion implemntieren vermute ich
-
+f1x = lambda x: x ** -2  # man kan das als normaler funktion implemntieren siehe unten
 
 # def f2(x):
 #     return math.log(x)
-
 
 
 f2x = lambda x: math.log(x)
