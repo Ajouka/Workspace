@@ -11,7 +11,7 @@ public class SudokuSolver {
         if (board[row][col]!=0) return solve(board,row,col+1);
 
         for (int i=1; i<=9; i++) {
-            if (isSafe(board,row,col,i)) {
+            if (isRight(board,row,col,i)) {
                 board[row][col]=i;
                 if(solve(board,row,col+1)) return true;
                 board[row][col]=0;
@@ -25,22 +25,22 @@ public class SudokuSolver {
         return false;
     }
 
-    private boolean isSafe(int[][] board, int row, int col, int num) {
+    private boolean isRight(int[][] board, int row, int col, int numb) {
 
 
         for( int i=0; i<9; i++) {
-            if (board[row][i]==num) return false;
+            if (board[row][i]==numb) return false;
 
         }
         for (int i=0; i<9; i++) {
-            if (board[i][col]==num) return false;
+            if (board[i][col]==numb) return false;
         }
-        int startRow = row -row%3;
-        int startCol = col -col%3;
+        int firstRow = row -row%3;
+        int firstCol = col -col%3;
 
-        for (int i=startRow; i<startRow+3; i++) {
-            for (int j=startCol; j<startCol+3; j++) {
-                if (board[i][j]==num) return false;
+        for (int i=firstRow; i<firstRow+3; i++) {
+            for (int j=firstCol; j<firstCol+3; j++) {
+                if (board[i][j]==numb) return false;
             }
         }
         return true;

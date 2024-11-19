@@ -41,5 +41,12 @@ public class Main {
         String[] text={"abcccdddda","bcccccaba","bab"};
         System.out.println(sucheAB(text));;
 
+
+        ArrayList<Integer>[] arr = new ArrayList[5];
+
+
+
+
+
     }
 }

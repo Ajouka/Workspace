@@ -18,5 +18,6 @@ let Tarek={
 }
 
 console.log(Tarek.fullName())
+console.log(typeof Tarek)
 
 
