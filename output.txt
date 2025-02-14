@@ -1,0 +1,1 @@
+Servicestationen in: [X, Y], [R, S, T], [P, S, T], [B, C, D], [B, C], [A, B, C, T, U, V, W, X, Y, Z], [P, Q, R], [F1, E1], [P, Q, R, S, T, U, V, W, X, Y], [Q, R, S], [G1], [P, Q, R, S, T, U, V, M, N, O], [W, Z], [A, B, C], [C, D, E], [Y, Z], [A1, B1], [D1, C1], [E, F]

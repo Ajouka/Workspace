@@ -1,20 +1,19 @@
-import java.awt.*;
-
 import java.io.*;
 import java.util.*;
-import java.util.List;
-
 
 public class TrainDataProcessor {
+    private Set<String> bestSolution;
+    private int minStations;
+
     // Eingabedatei einlesen
     public List<Set<String>> readInput(String filePath) throws IOException {
-        List<Set<String>> trainRoutes = new ArrayList<Set<String>>();
+        List<Set<String>> trainRoutes = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
                 if (!line.startsWith("#") && !line.trim().isEmpty()) {
                     String[] stations = line.split(";");
-                    trainRoutes.add(Collections.singleton(String.valueOf(new HashSet<>(Arrays.asList(stations)))));
+                    trainRoutes.add(new HashSet<>(Arrays.asList(stations)));
                 }
             }
         }
@@ -23,20 +22,21 @@ public class TrainDataProcessor {
 
     // Datenreduktionstechniken
     public List<Set<String>> reduceData(List<Set<String>> trainRoutes) {
-        // Technik 1: Entfernen von Duplikaten innerhalb einer Verbindung
+        // Entfernen von Duplikaten innerhalb einer Zugverbindung
         for (Set<String> route : trainRoutes) {
             Set<String> uniqueStations = new HashSet<>(route);
             route.clear();
             route.addAll(uniqueStations);
         }
 
-        // Technik 2: Entfernen redundanter Bahnhöfe
+        // Entfernen redundanter Bahnhöfe
         Set<String> allStations = new HashSet<>();
         for (Set<String> route : trainRoutes) {
             allStations.addAll(route);
         }
 
-        for (String station : new HashSet<>(allStations)) {
+        Set<String> removableStations = new HashSet<>();
+        for (String station : allStations) {
             boolean canBeRemoved = true;
             for (Set<String> route : trainRoutes) {
                 if (route.contains(station) && route.size() == 1) {
@@ -45,42 +45,76 @@ public class TrainDataProcessor {
                 }
             }
             if (canBeRemoved) {
-                for (Set<String> route : trainRoutes) {
-                    route.remove(station);
-                }
+                removableStations.add(station);
             }
         }
+
+        for (Set<String> route : trainRoutes) {
+            route.removeAll(removableStations);
+        }
+
+        // Datenreduktionstechnik 3: Reduktion der Zugverbindungen
+        trainRoutes.removeIf(route1 -> trainRoutes.stream().anyMatch(route2 -> !route1.equals(route2) && route2.containsAll(route1)));
 
         return trainRoutes;
     }
-    // Algorithmus zur Berechnung der minimalen Servicestationen
+
+    // Optimierte Berechnung der minimalen Servicestationen mit Backtracking
     public Set<String> calculateServiceStations(List<Set<String>> trainRoutes) {
-        Set<String> serviceStations = new HashSet<>();
+        bestSolution = new HashSet<>();
+        minStations = Integer.MAX_VALUE;
 
-        while (!trainRoutes.isEmpty()) {
-            // Häufigster Bahnhof identifizieren
-            Map<String, Integer> stationCount = new HashMap<>();
-            for (Set<String> route : trainRoutes) {
-                for (String station : route) {
-                    stationCount.put(station, stationCount.getOrDefault(station, 0) + 1);
-                }
-            }
-
-            String mostFrequentStation = Collections.max(stationCount.entrySet(), Map.Entry.comparingByValue()).getKey();
-
-            // Station als Servicestation hinzufügen
-            serviceStations.add(mostFrequentStation);
-
-            // Zugverbindungen entfernen, die von dieser Servicestation abgedeckt werden
-            trainRoutes.removeIf(route -> route.contains(mostFrequentStation));
+        Set<String> allStations = new HashSet<>();
+        for (Set<String> route : trainRoutes) {
+            allStations.addAll(route);
         }
 
-        return serviceStations;
+        List<String> stationsList = new ArrayList<>(allStations);
+        backtrack(trainRoutes, new HashSet<>(), stationsList, 0);
+
+        return bestSolution;
     }
+
+    private void backtrack(List<Set<String>> trainRoutes, Set<String> currentSet, List<String> stationsList, int index) {
+        // Basisfall: Alle Züge sind versorgt
+        if (allTrainsCovered(trainRoutes, currentSet)) {
+            if (currentSet.size() < minStations) {
+                minStations = currentSet.size();
+                bestSolution = new HashSet<>(currentSet);
+            }
+            return;
+        }
+
+        // Abbruchbedingung: Lösung ist bereits schlechter oder Index überschritten
+        if (currentSet.size() >= minStations || index >= stationsList.size()) return;
+
+        // 1. Aktuelle Station hinzufügen und rekursiv aufrufen
+        currentSet.add(stationsList.get(index));
+        backtrack(trainRoutes, currentSet, stationsList, index + 1);
+
+        // 2. Station entfernen und rekursiv ohne sie weitermachen
+        currentSet.remove(stationsList.get(index));
+        backtrack(trainRoutes, currentSet, stationsList, index + 1);
+    }
+
+    private boolean allTrainsCovered(List<Set<String>> trainRoutes, Set<String> serviceStations) {
+        for (Set<String> route : trainRoutes) {
+            boolean covered = false;
+            for (String station : route) {
+                if (serviceStations.contains(station)) {
+                    covered = true;
+                    break;
+                }
+            }
+            if (!covered) return false;
+        }
+        return true;
+    }
+
     // Ergebnisse in eine Datei schreiben
     public void writeOutput(String filePath, Set<String> serviceStations) throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
-            bw.write("Servicestationen in: " + String.join(", ", serviceStations));
+            bw.write("Servicestationen in: " + String.join(";", serviceStations));
         }
     }
 }

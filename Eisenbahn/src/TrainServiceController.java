@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.io.IOException;
 import java.util.Set;
 import java.util.List;
@@ -25,11 +24,9 @@ public class TrainServiceController {
         Set<String> serviceStations = dataProcessor.calculateServiceStations(trainRoutes);
 
         // Ausgabe
-        System.out.println("Servicestationen in: " + String.join(", ", serviceStations));
+        System.out.println("Servicestationen in: " + String.join(";", serviceStations));
 
         // Ergebnisse in einer Datei speichern
         dataProcessor.writeOutput(outputFilePath, serviceStations);
     }
-
-
 }
