@@ -30,28 +30,38 @@ public class TrainDataProcessor {
         }
 
         // Entfernen redundanter Bahnhöfe
-        Set<String> allStations = new HashSet<>();
+        Map<String, Set<String>> stationToTrains = new HashMap<>();
+
+        // 1. Map erstellen, die speichert, welche Bahnhöfe in welchen Zugverbindungen vorkommen
         for (Set<String> route : trainRoutes) {
-            allStations.addAll(route);
+            for (String station : route) {
+                stationToTrains.computeIfAbsent(station, k -> new HashSet<>()).addAll(route);
+            }
         }
 
         Set<String> removableStations = new HashSet<>();
-        for (String station : allStations) {
-            boolean canBeRemoved = true;
-            for (Set<String> route : trainRoutes) {
-                if (route.contains(station) && route.size() == 1) {
-                    canBeRemoved = false;
+
+        // 2. Prüfen, ob ein Bahnhof immer von anderen Bahnhöfen ersetzt wird
+        for (String station : stationToTrains.keySet()) {
+            boolean canBeRemoved = false;
+
+            for (String otherStation : stationToTrains.keySet()) {
+                if (!station.equals(otherStation) && stationToTrains.get(otherStation).containsAll(stationToTrains.get(station))) {
+                    canBeRemoved = true;
                     break;
                 }
             }
+
             if (canBeRemoved) {
                 removableStations.add(station);
             }
         }
 
+        // 3. Entferne die wirklich redundanten Bahnhöfe
         for (Set<String> route : trainRoutes) {
             route.removeAll(removableStations);
         }
+
 
         // Datenreduktionstechnik 3: Reduktion der Zugverbindungen
         trainRoutes.removeIf(route1 -> trainRoutes.stream().anyMatch(route2 -> !route1.equals(route2) && route2.containsAll(route1)));
